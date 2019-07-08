@@ -15,6 +15,8 @@ class UrlMappings {
         "404"(view: '/notFound')
         "/promocoes"(resources: 'promocao')
         "/promocoes/sites/$id"(controller: 'promocao', action:'getBySite')
-        
+        "/promocoes/teatros/$id"(controller: 'promocao',action: 'getByTeatro')
+        "/salas"(resources: 'salaTeatro')
+        "/salas/cidade/$cidade"(controller: 'salaTeatro', action:'getByCidade')
     }
 }

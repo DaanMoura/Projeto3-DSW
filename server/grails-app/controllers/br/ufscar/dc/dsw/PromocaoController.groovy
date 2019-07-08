@@ -16,4 +16,8 @@ class PromocaoController extends RestfulController {
         Site site = Site.get(params.id)
         respond Promocao.findAllBySite(site), view: 'index'
     }
+    def List<Promocao> getByTeatro(params){
+        SalaTeatro sala = SalaTeatro.get(params.id)
+        respond Promocao.findAllBySala(sala), view: 'index'
+    }
 }
