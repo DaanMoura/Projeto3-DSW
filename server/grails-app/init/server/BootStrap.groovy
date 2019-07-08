@@ -28,6 +28,47 @@ class BootStrap {
         nome: "Site Teste",
         telefone: "1144332211")
       site.save()
+      SalaTeatro sala = new SalaTeatro(
+        email: "teatro@teatro.com",
+        senha:"teatro123",
+        cnpj:"123456789",
+        nome:"Um teatro",
+        cidade:"Um lugar"
+      )
+      sala.save()
+      sala = new SalaTeatro(
+        email:"outroteatro@teatro.com",
+        senha:"teatro123",
+        cnpj:"987654321",
+        nome:"Outro teatro",
+        cidade:"Outro lugar"
+      )
+      sala.save()
+      Promocao promocao = new Promocao(
+        site: site,
+        sala: sala,
+        nomePeca: "Tinta secando",
+        preco: 0.01,
+        horario: new Date()
+      )
+      promocao.save()
+      
+      promocao = new Promocao(
+        site : outrosite,
+        sala : sala,
+        nomePeca: "Literalmente Nada",
+        preco: 0.02,
+        horario: new Date()
+      )
+      promocao.save()
+      promocao = new Promocao(
+        site: outrosite,
+        sala: sala,
+        nomePeca: "Nada",
+        preco: 0.03,
+        horario: new Date()
+      )
+      promocao.save()
     }
     def destroy = {
     }
