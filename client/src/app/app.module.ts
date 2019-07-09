@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- import {
+import {
    MatInputModule,
    MatPaginatorModule,
    MatProgressSpinnerModule,
@@ -16,12 +16,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    MatCardModule,
    MatFormFieldModule } from "@angular/material";
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     MatInputModule,
     MatPaginatorModule,
