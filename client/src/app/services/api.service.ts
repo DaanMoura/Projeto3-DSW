@@ -107,4 +107,44 @@ export class ApiService {
       catchError(this.handleError<SalaTeatro>('deleteSalaTeatro'))
     );
   }
+
+  getPromocoes(): Observable<Promocao[]> {
+    const url = `${apiUrl}/promocao`;
+    return this.http.get<Promocao[]>(url).pipe(
+      tap(_ => console.log('getPromocoes')),
+      catchError(this.handleError('getPromocoes',[]))
+    );
+  }
+
+  getPromocao(id: number): Observable<Promocao> {
+    const url = `${apiUrl}/promocao/${id}`;
+    return this.http.get<Promocao>(url).pipe(
+      tap(_ => console.log(`getPromocao id=${id}`)),
+      catchError(this.handleError<Promocao>(`getSite id=${id}`))
+    );
+  }
+
+  addPromocao(promocao: Promocao): Observable<Promocao> {
+    const url = `${apiUrl}/promocao`;
+    return this.http.post<Promocao>(url, promocao, httpOptions).pipe(
+      tap((promocao: Promocao) => console.log(`addPromocao w/id=${promocao.id}`)),
+      catchError(this.handleError<Promocao>('addPromocao'))
+    );
+  }
+
+  updatePromocao(id: number, promocao: Promocao): Observable<Promocao> {
+    const url = `${apiUrl}/promocao/${id}`;
+    return this.http.put(url, promocao, httpOptions).pipe(
+      tap(_ => console.log(`updatePromocao id=${id}`)),
+      catchError(this.handleError<any>('updatePromocao'))
+    );
+  }
+
+  deletePromocao(id: number): Observable<Promocao> {
+    const url = `${apiUrl}/promocao/${id}`;
+    return this.http.delete<Promocao>(url).pipe(
+      tap(_ => console.log(`deletePromocao id=${id}`)),
+      catchError(this.handleError<Promocao>('deletePromocao'))
+    );
+  }
 }
