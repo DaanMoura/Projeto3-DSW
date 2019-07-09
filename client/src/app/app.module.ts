@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TeatroComponent } from './components/teatro/teatro.component';
+import { TeatroCadastroComponent } from './components/teatro-cadastro/teatro-cadastro.component';
+import { TeatroEdicaoComponent } from './components/teatro-edicao/teatro-edicao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  import {
    MatInputModule,
@@ -18,10 +23,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent, 
+    TeatroComponent,
+    TeatroCadastroComponent,
+    TeatroEdicaoComponent ],
   imports: [
     BrowserModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     MatInputModule,
     MatPaginatorModule,

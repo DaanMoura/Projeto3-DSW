@@ -1,0 +1,65 @@
+<div class="example-container mat-elevation-z8">
+    <mat-card class="example-card">
+<form [formGroup]="formularioDeTeatro" (ngSubmit)="enviarDados()">
+  <mat-form-field class="example-full-width">
+    <label for="nome">Nome: </label>
+    <input type="text" formControlName="nome">
+      <span *ngIf="nome.errors.required && !nome.pristine">
+        Nome é obrigatório.</span>
+        <mat-error>
+      <span *ngIf="nome.errors.minlength && !nome.pristine">
+        Nome deve ter no mínimo 3 caracters.
+      </span>
+    </mat-error>
+      <span *ngIf="nome.errors.maxlength && !nome.pristine">
+        Nome deve ter no máximo 100 caracters.
+      </span>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <label for="cnpj">CNPJ: </label>
+      <input type="text" formControlName="cnpj">
+        <span *ngIf="cnpj.errors.required && !cnpj.pristine">
+          CNPJ é obrigatório.
+        </span>
+        <span *ngIf="cnpj.errors.cnpjInvalido && !cnpj.pristine">
+          Digite um CNPJ válido
+        </span>
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <label for="cidade">Cidade: </label>
+      <input type="text" formControlName="cidade">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <label for="email">E-mail: </label>
+      <input type="text" formControlName="email">
+    <span *ngIf="!email.pristine && email.errors"> </span>
+      <span *ngIf="email.errors.email && !email.pristine">
+        Digite um e-mail válido.
+      </span>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+        <label for="senha">Senha: </label>
+      <input type="password" formControlName="senha">
+      <span *ngIf="!senha.pristine && senha.errors"> </span>
+        <span *ngIf="senha.errors.required && !senha.pristine">
+          Senha é obrigatória.
+        </span>
+        <span *ngIf="senha.errors.minlength && !senha.pristine">
+          Senha deve ter no mínimo 6 caracters.
+        </span>
+        <span *ngIf="senha.errors.maxlength && !senha.pristine">
+          Senha deve ter no máximo 12 caracters.
+        </span>
+    </mat-form-field>
+    
+    <div>
+        <button [disabled]="!formularioDeTeatro.valid">Enviar dados</button>
+      </div>
+  </form>
+  </mat-card>
+</div>
+
