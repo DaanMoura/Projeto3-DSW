@@ -67,4 +67,44 @@ export class ApiService {
       catchError(this.handleError<Site>('deleteSite'))
     );
   }
+
+  getSalaTeatros(): Observable<SalaTeatro[]> {
+    const url = `${apiUrl}/salaTeatro`;
+    return this.http.get<SalaTeatro[]>(url).pipe(
+      tap(_ => console.log('getSalaTeatros')),
+      catchError(this.handleError('getSalaTeatros',[]))
+    );
+  }
+
+  getSalaTeatro(id: number): Observable<SalaTeatro> {
+    const url = `${apiUrl}/salaTeatro/${id}`;
+    return this.http.get<SalaTeatro>(url).pipe(
+      tap(_ => console.log(`getSalaTeatro id=${id}`)),
+      catchError(this.handleError<SalaTeatro>(`getSalaTeatro id=${id}`))
+    );
+  }
+
+  addSalaTeatro(sala: SalaTeatro): Observable<SalaTeatro> {
+    const url = `${apiUrl}/salaTeatro`;
+    return this.http.post<SalaTeatro>(url, sala, httpOptions).pipe(
+      tap((sala: SalaTeatro) => console.log(`addSalaTeatro w/id=${sala.id}`)),
+      catchError(this.handleError<SalaTeatro>('addSalaTeatro'))
+    );
+  }
+
+  updateSalaTeatro(id: number, sala: SalaTeatro): Observable<SalaTeatro> {
+    const url = `${apiUrl}/salaTeatro/${id}`;
+    return this.http.put(url, sala, httpOptions).pipe(
+      tap(_ => console.log(`updateSalaTeatro id=${id}`)),
+      catchError(this.handleError<any>('updateSalaTeatro'))
+    );
+  }
+
+  deleteSalaTeatro(id: number): Observable<SalaTeatro> {
+    const url = `${apiUrl}/salaTeatro/${id}`;
+    return this.http.delete<SalaTeatro>(url).pipe(
+      tap(_ => console.log(`deleteSalaTeatro id=${id}`)),
+      catchError(this.handleError<SalaTeatro>('deleteSalaTeatro'))
+    );
+  }
 }
