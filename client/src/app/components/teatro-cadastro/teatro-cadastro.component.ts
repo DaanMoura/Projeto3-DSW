@@ -27,18 +27,13 @@ export class TeatroCadastroComponent implements OnInit {
           nome: [null,
           Validators.compose([
             Validators.required,
-            Validators.minLength(3),
             Validators.maxLength(100)])
           ],
           cnpj: [null, Validators.compose([Validators.required, 
-                                         Validators.minLength(14), 
                                          Validators.maxLength(14), Validacoes.ValidaCNPJ])],
-          cidade: [null, Validators.compose([Validators.required 
-                                          ,Validators.minLength(3)])],
+          cidade: [null, Validators.compose([Validators.required ])],
           email: [null, Validators.compose([Validators.required ,Validators.email])],
-          senha: [null, Validators.compose([Validators.required, 
-                                         Validators.minLength(6), 
-                                         Validators.maxLength(12)])
+          senha: [null, Validators.compose([Validators.required])
           ],
       },
     );

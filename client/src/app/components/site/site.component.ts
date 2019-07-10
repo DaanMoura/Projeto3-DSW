@@ -19,8 +19,6 @@ export class SiteComponent implements OnInit {
     this.getData();
   }
 
-  
-
   async getData() {
     this.sites = await this.api.getSites().toPromise();
     this.isLoadingResults = false;

@@ -12,15 +12,6 @@ export class Validacoes {
   
       if (
         cnpj == '00000000000000' ||
-        cnpj == '11111111111111' ||
-        cnpj == '22222222222222' ||
-        cnpj == '33333333333333' ||
-        cnpj == '44444444444444' ||
-        cnpj == '55555555555555' ||
-        cnpj == '66666666666666' ||
-        cnpj == '77777777777777' ||
-        cnpj == '88888888888888' ||
-        cnpj == '99999999999999' ||
         !regex.test(cnpj)
       )
         valido = false;
@@ -47,4 +38,17 @@ export class Validacoes {
       return { cnpjInvalido: true };
     }
 
-}
+    public cpfcnpjmask = function () {
+      var numbers = this.usuarioBuscar.login.match(/\d/g);
+      var numberLength = 0;
+      if (numbers) {
+        numberLength = numbers.join('').length;
+      }
+      if (numberLength <= 11) {
+        return [/[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];
+      } else {
+        return [/[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '/', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];
+      }
+    }
+
+  }
