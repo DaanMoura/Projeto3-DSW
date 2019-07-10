@@ -86,8 +86,8 @@ export class ApiService {
 
   addSalaTeatro(sala: SalaTeatro): Observable<SalaTeatro> {
     const url = `${apiUrl}/salaTeatro`;
-    return this.http.post<SalaTeatro>(url, sala, httpOptions).pipe(
-      tap((sala: SalaTeatro) => console.log(`addSalaTeatro w/id=${sala.id}`)),
+    return this.http.post<SalaTeatro>(url,sala, httpOptions).pipe(
+      tap((sala: SalaTeatro) => console.log(`addSalaTeatro`)),
       catchError(this.handleError<SalaTeatro>('addSalaTeatro'))
     );
   }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Teatro } from 'src/app/models/teatro';
+import { SalaTeatro } from 'src/app/models/salaTeatro';
 import { Validacoes } from 'src/app/components/teatro-cadastro/validacoes';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-teatro-cadastro',
@@ -14,7 +15,7 @@ export class TeatroCadastroComponent implements OnInit {
 
   formularioDeTeatro: FormGroup;
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private api:ApiService){}
 
   ngOnInit(): void{
       this.criarFormularioDeTeatro();
@@ -24,17 +25,17 @@ export class TeatroCadastroComponent implements OnInit {
 
       const dadosFormulario = this.formularioDeTeatro.value;
 
-      const teatro = new Teatro(
+      const teatro = new SalaTeatro(
         dadosFormulario.nome,
         dadosFormulario.cnpj,
         dadosFormulario.cidade,
         dadosFormulario.email,
         dadosFormulario.senha
       );
-
       //so pra testar
       if(dadosFormulario.nome && dadosFormulario.cnpj && dadosFormulario.cidade && dadosFormulario. email && dadosFormulario.senha){
         alert(`O teatro ${teatro.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(teatro)}`);
+        this.api.addSalaTeatro(teatro);
       }
       this.formularioDeTeatro.reset();
   }
