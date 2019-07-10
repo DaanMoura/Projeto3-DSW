@@ -1,3 +1,43 @@
-<p>
-  promocao-cadastro works!
-</p>
+<div class="example-container mat-elevation-z8">
+  <mat-card class="example-card">
+    <form [formGroup]="formularioDePromocao" (ngSubmit)="onFormSubmit(formularioDePromocao.value)">
+      <mat-form-field class="example-full-width">
+        <label for="nomePeca">Nome Peca: </label>
+        <input type="text" formControlName="nomePeca">
+        <span *ngIf="nomePeca.errors.required && !nomePeca.pristine">
+          Nome é obrigatório.</span>
+        </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <label for="horario">Horário: </label>
+        <input type="datetime" formControlName="horario">
+          <span *ngIf="horario.errors.required && !horario.pristine">
+            Horario é obrigatório.
+          </span>
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width">
+          <label for="preco">Preco: </label>
+          <input type="number" formControlName="preco">
+          <span *ngIf="preco.errors.required && !preco.pristine">
+            Preco é obrigatório.
+          </span>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <mat-label>Site</mat-label>
+          <mat-select formControlName="site">
+              <mat-option *ngFor="let site of sites" [value]="site.id">
+                {{site.url}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Teatro</mat-label>
+              <mat-select formControlName="sala">
+                  <mat-option *ngFor="let sala of salas" [value]="sala.id">
+                    {{sala.nome}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
