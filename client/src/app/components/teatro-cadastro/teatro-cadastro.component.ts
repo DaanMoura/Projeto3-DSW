@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Teatro } from 'src/app/models/teatro';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
+import { SalaTeatro } from 'src/app/models/salaTeatro';
 import { Validacoes } from 'src/app/components/teatro-cadastro/validacoes';
+import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teatro-cadastro',
@@ -14,31 +16,12 @@ export class TeatroCadastroComponent implements OnInit {
 
   formularioDeTeatro: FormGroup;
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private api:ApiService, private router: Router){}
 
   ngOnInit(): void{
       this.criarFormularioDeTeatro();
   }
-
-  enviarDados(){
-
-      const dadosFormulario = this.formularioDeTeatro.value;
-
-      const teatro = new Teatro(
-        dadosFormulario.nome,
-        dadosFormulario.cnpj,
-        dadosFormulario.cidade,
-        dadosFormulario.email,
-        dadosFormulario.senha
-      );
-
-      //so pra testar
-      if(dadosFormulario.nome && dadosFormulario.cnpj && dadosFormulario.cidade && dadosFormulario. email && dadosFormulario.senha){
-        alert(`O teatro ${teatro.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(teatro)}`);
-      }
-      this.formularioDeTeatro.reset();
-  }
-
+  
   criarFormularioDeTeatro(){
       this.formularioDeTeatro = this.fb.group({
           nome: [null,
@@ -60,18 +43,13 @@ export class TeatroCadastroComponent implements OnInit {
       },
     );
   }
-
-  get nome() {
-    return this.formularioDeTeatro.get('nome');
+  
+  onFormSubmit(form: any) {
+    this.api.addSalaTeatro(form).subscribe(res => {
+      this.router.navigate(['/teatro']);
+    }, err => {
+      console.log(err);
+    });
   }
-
-  get email() {
-    return this.formularioDeTeatro.get('email');
-  }
-
-  get cnpj() {
-    return this.formularioDeTeatro.get('cnpj');
-  }
-
 
 }
