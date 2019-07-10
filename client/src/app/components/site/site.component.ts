@@ -16,14 +16,12 @@ export class SiteComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getSites().subscribe(res => {
-      this.sites = res;
-      console.log(this.sites);
-      this.isLoadingResults = false;
-    }, err => {
-      console.log(err);
-      this.isLoadingResults = false;
-    });
+    this.getData();
+  }
+
+  async getData() {
+    this.sites = await this.api.getSites().toPromise();
+    this.isLoadingResults = false;
   }
 
 }

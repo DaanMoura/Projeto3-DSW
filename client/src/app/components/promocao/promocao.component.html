@@ -1,3 +1,43 @@
-<p>
-  promocao works!
-</p>
+
+<div class="container">
+  <div class="example-loading-shade"
+      *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+    <table mat-table [dataSource]="promocoes" class="example-table mat-elevation-z2"
+      matSort matSortActive="id" matSortDisableClear matSortDirection="asc">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomePeca">
+        <th mat-header-cell *matHeaderCellDef>Nome da Peça</th>
+        <td mat-cell *matCellDef="let row">{{row.nomePeca}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="preco">
+        <th mat-header-cell *matHeaderCellDef>Preço</th>
+        <td mat-cell *matCellDef="let row">R$ {{row.preco}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="horario">
+        <th mat-header-cell *matHeaderCellDef>Horário</th>
+        <td mat-cell *matCellDef="let row">{{row.horario | date:"dd/MM/yyyy 'às' HH:mm"}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sala">
+        <th mat-header-cell *matHeaderCellDef>Teatro</th>
+        <td mat-cell *matCellDef="let row">{{row.sala.nome}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="site">
+        <th mat-header-cell *matHeaderCellDef>Site</th>
+        <td mat-cell *matCellDef="let row">{{row.site.url}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>    
+</div>
