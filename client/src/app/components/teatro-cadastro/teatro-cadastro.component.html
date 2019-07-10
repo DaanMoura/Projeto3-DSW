@@ -1,6 +1,7 @@
 <div class="example-container mat-elevation-z8">
     <mat-card class="example-card">
 <form [formGroup]="formularioDeTeatro" (ngSubmit)="onFormSubmit(formularioDeTeatro.value)">
+<!-- <form [formGroup]="formularioDeTeatro" (ngSubmit)="enviarDados()"> -->
   <mat-form-field class="example-full-width">
     <label for="nome">Nome: </label>
     <input type="text" formControlName="nome">
