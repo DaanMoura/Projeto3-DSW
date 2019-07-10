@@ -38,13 +38,31 @@ export class TeatroCadastroComponent implements OnInit {
       },
     );
   }
-  
-  onFormSubmit(form: any) {
-    this.api.addSalaTeatro(form).subscribe(res => {
-      this.router.navigate(['/teatro']);
-    }, err => {
-      console.log(err);
-    });
+
+  onFormSubmit(form: SalaTeatro) {
+    console.log(form);
+    if(!(form.nome && form.cnpj && form.cidade && form.email && form.senha)) {
+      alert(`Tem algo null: ${JSON.stringify(form)}`)
+    } else {
+      this.api.addSalaTeatro(form).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['/teatro']);
+      }, err => {
+        console.log(err);
+      });
+    }
+  }
+
+  get nome() {
+    return this.formularioDeTeatro.get('nome');
+  }
+
+  get email() {
+    return this.formularioDeTeatro.get('email');
+  }
+
+  get cnpj() {
+    return this.formularioDeTeatro.get('cnpj');
   }
 
 }
