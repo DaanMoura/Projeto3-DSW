@@ -16,21 +16,14 @@ export class TeatroComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-      // this.getData();
-      this.api.getSalaTeatros().subscribe(res => {
-        this.salas = res;
-        console.log(this.salas);
-        this.isLoadingResults = false;
-      }, err=> {
-        console.log(err);
-        this.isLoadingResults = false;
-      });
+    this.api.getSalaTeatros().subscribe(res => {
+      this.salas = res;
+      console.log(this.salas);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });
   }
-
-  // async getData() {
-  //   this.salas = await this.api.getSalaTeatros().toPromise();
-  //   this.isLoadingResults = false;
-  //   console.debug('Waiting for promisse get resolved...');
-  // }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Site } from 'src/app/models/site';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-site',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['id','nome','url','telefone'];
+  sites: Site[] = [];
+  isLoadingResults = true;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api.getSites().subscribe(res => {
+      this.sites = res;
+      console.log(this.sites);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });
   }
 
 }
