@@ -4,7 +4,7 @@
       *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
-    <table mat-table [dataSource]="salas" class="example-table mat-elevation-z4"
+    <table mat-table [dataSource]="salas" class="example-table mat-elevation-z2"
       matSort matSortActive="id" matSortDisableClear matSortDirection="asc">
 
       <ng-container matColumnDef="id">

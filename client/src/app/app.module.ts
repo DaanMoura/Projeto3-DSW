@@ -22,13 +22,25 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SiteComponent } from './components/site/site.component';
+import { SiteCadastroComponent } from './components/site-cadastro/site-cadastro.component';
+import { SiteEdicaoComponent } from './components/site-edicao/site-edicao.component';
+import { PromocaoComponent } from './components/promocao/promocao.component';
+import { PromocaoCadastroComponent } from './components/promocao-cadastro/promocao-cadastro.component';
+import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     TeatroComponent,
     TeatroCadastroComponent,
-    TeatroEdicaoComponent ],
+    TeatroEdicaoComponent,
+    SiteComponent,
+    SiteCadastroComponent,
+    SiteEdicaoComponent,
+    PromocaoComponent,
+    PromocaoCadastroComponent,
+    PromocaoEdicaoComponent ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
