@@ -10,6 +10,7 @@ import { TeatroEdicaoComponent } from './components/teatro-edicao/teatro-edicao.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
    MatInputModule,
+   MatSelectModule,
    MatPaginatorModule,
    MatProgressSpinnerModule,
    MatSortModule,
@@ -57,6 +58,7 @@ import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-e
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatSelectModule,
     BrowserAnimationsModule
   ],
   providers: [],
