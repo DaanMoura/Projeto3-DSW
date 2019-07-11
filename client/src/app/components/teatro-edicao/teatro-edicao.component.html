@@ -1,3 +1,56 @@
-<p>
-  teatro-edicao works!
-</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/teatro']">
+        <mat-icon>list</mat-icon>
+      </a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="formularioDeTeatro" (ngSubmit)="onFormSubmit(formularioDeTeatro.value)">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nome" formControlName="nome" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDeTeatro.get('nome').valid && formularioDeTeatro.get('nome').touched">Por favor entre com o nome</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="CNPJ" formControlName="cnpj" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDeTeatro.get('cnpj').valid && formularioDeTeatro.get('cnpj').touched">CNPJ invalido! Preencha com 14 digitos numericos</span>
+          </mat-error>          
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Cidade" formControlName="cidade" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDeTeatro.get('cidade').valid && formularioDeTeatro.get('cidade').touched">Por favor entre com a cidade</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDeTeatro.get('email').valid && formularioDeTeatro.get('email').touched">Formato de email incorreto!</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Senha" type="password" formControlName="senha" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDeTeatro.get('senha').valid && formularioDeTeatro.get('senha').touched">Por favor entre com a senha</span>
+          </mat-error>
+        </mat-form-field>
+       
+        <div class="button-row">
+          <button mat-button type="submit" [disabled]="!formularioDeTeatro.valid" mat-flat-button color="primary">
+            
+            <mat-icon>save</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  
