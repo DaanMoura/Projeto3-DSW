@@ -1,3 +1,39 @@
-<p>
-  promocao-edicao works!
-</p>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/site']">
+        <mat-icon>list</mat-icon>
+      </a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="formularioDePromocao" (ngSubmit)="onFormSubmit(formularioDePromocao.value)">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nome da peça" formControlName="nomePeca" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDePromocao.get('nomePeca').valid && formularioDePromocao.get('nomePeca').touched">Por favor entre com a nomePeca</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput type="date" placeholder="Hórario" formControlName="horario" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDePromocao.get('horario').valid && formularioDePromocao.get('horario').touched">Por favor entre com o horario</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Preço" formControlName="preco" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!formularioDePromocao.get('preco').valid && formularioDePromocao.get('preco').touched">Por favor entre com o preco</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-flat-button type="submit" [disabled]="!formularioDePromocao.valid" mat-flat-button color="primary">
+            
+            <mat-icon>save</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

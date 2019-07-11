@@ -12,7 +12,7 @@
     styleUrls: ['./teatro-edicao.component.css']
   })
   export class TeatroEdicaoComponent implements OnInit {
-    FormularioDeTeatro: FormGroup;
+    formularioDeTeatro: FormGroup;
     id: number = null;
     selected: SalaTeatro = null;
     teatros: SalaTeatro[];
@@ -22,7 +22,7 @@
     getSalaTeatros(id) {
       this.api.getSalaTeatro(id).subscribe(data => {
         this.id= data.id;
-        this.FormularioDeTeatro.setValue({
+        this.formularioDeTeatro.setValue({
           cnpj: data.cnpj,
           nome: data.nome,
           cidade: data.cidade,
@@ -46,7 +46,7 @@
           console.log(err);
         });
       this.getSalaTeatros(this.route.snapshot.params['id']);
-      this.FormularioDeTeatro = this.formBuilder.group({
+      this.formularioDeTeatro = this.formBuilder.group({
         'cnpj': [null, Validators.required],
         'nome': [null, Validators.required],
         'cidade': [null, Validators.required],
