@@ -26,9 +26,8 @@ export class TeatroComponent implements OnInit {
   }
 
   async deleteItem(id: number) {
-    console.log(`delete ${id}`)
+    console.log(`trying to delete ${id}`)
     await this.api.deleteSalaTeatro(id).toPromise();
-    this.router.navigate(['/teatro']);
     this.getData();
   }
 

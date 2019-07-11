@@ -24,5 +24,10 @@ export class PromocaoComponent implements OnInit {
     this.isLoadingResults = false;
   }
 
+  async deleteItem(id: number) {
+    console.log(`trying to delete ${id}`)
+    await this.api.deletePromocao(id).toPromise();
+    this.getData();
+  }
 
 }
