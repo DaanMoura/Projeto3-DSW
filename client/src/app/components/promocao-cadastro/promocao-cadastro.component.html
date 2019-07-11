@@ -16,7 +16,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput type="date" placeholder="Hórario" formControlName="horario" [errorStateMatcher]="matcher">
+          <input matInput type="time" placeholder="Hórario" formControlName="horario" [errorStateMatcher]="matcher">
           <mat-error>
             <span *ngIf="!formularioDePromocao.get('horario').valid && formularioDePromocao.get('horario').touched">Por favor entre com o horario</span>
           </mat-error>

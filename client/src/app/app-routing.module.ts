@@ -6,10 +6,11 @@ import { TeatroCadastroComponent } from './components/teatro-cadastro/teatro-cad
 import { TeatroEdicaoComponent } from './components/teatro-edicao/teatro-edicao.component';
 import { SiteComponent } from './components/site/site.component';
 import { SiteCadastroComponent } from './components/site-cadastro/site-cadastro.component';
-import { SiteEdicaoComponent } from './components/site-edicao/site-edicao.component';
 import { PromocaoComponent } from './components/promocao/promocao.component';
 import { PromocaoCadastroComponent } from './components/promocao-cadastro/promocao-cadastro.component';
 import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-edicao.component';
+import { SiteEdicaoComponent } from './components/site-edicao/site-edicao.component';
+
 
 
 const routes: Routes = [
