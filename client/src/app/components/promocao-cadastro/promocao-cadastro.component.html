@@ -30,7 +30,7 @@
         <mat-form-field class="example-full-width">
             <mat-label>Site</mat-label>
             <mat-select formControlName="site">
-                <mat-option *ngFor="let site of sites" [value]="site.id && site.url">
+                <mat-option *ngFor="let site of sites" [value]="site">
                   {{site.url}}
                 </mat-option>
               </mat-select>
@@ -38,7 +38,7 @@
         <mat-form-field class="example-full-width">
             <mat-label>Sala</mat-label>
             <mat-select formControlName="sala">
-                <mat-option *ngFor="let sala of salas" [value]="sala.id && sala.nome">
+                <mat-option *ngFor="let sala of salas" [value]="sala">
                   {{sala.nome}}
                 </mat-option>
               </mat-select>
