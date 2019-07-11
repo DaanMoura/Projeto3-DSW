@@ -55,6 +55,8 @@ export class PromocaoCadastroComponent implements OnInit {
 
   onFormSubmit(form: Promocao){
     console.log(form);
+
+    form.horario = new Date(form.horario);
     
     if(!(form.horario && form.nomePeca && form.preco && form.sala && form.site)){
       alert(`Tem algo null: ${JSON.stringify(form)}`)
