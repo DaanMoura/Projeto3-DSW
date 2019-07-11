@@ -60,9 +60,8 @@
       this.isLoadingResults = true;
       this.api.updateSite(this.id, form)
         .subscribe(res => {
-            let id = res['id']; //acho que nao precisa do id
             this.isLoadingResults = false;
-            this.router.navigate(['/site', id]);
+            this.router.navigate(['/site']);
           }, (err) => {
             console.log(err);
             this.isLoadingResults = false;

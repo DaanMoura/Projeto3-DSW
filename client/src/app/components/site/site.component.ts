@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Site } from 'src/app/models/site';
 import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-site',
@@ -13,7 +14,7 @@ export class SiteComponent implements OnInit {
   sites: Site[] = [];
   isLoadingResults = true;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -22,6 +23,11 @@ export class SiteComponent implements OnInit {
   async getData() {
     this.sites = await this.api.getSites().toPromise();
     this.isLoadingResults = false;
+  }
+
+  async editItem(id: number) {
+    console.log(`going to edit ${id}`)
+    this.router.navigate(['/site-edicao', id])
   }
 
   async deleteItem(id: number) {
