@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeatroComponent } from './components/teatro/teatro.component';
@@ -9,6 +11,7 @@ import { TeatroCadastroComponent } from './components/teatro-cadastro/teatro-cad
 import { TeatroEdicaoComponent } from './components/teatro-edicao/teatro-edicao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+   MatSelectModule,
    MatInputModule,
    MatPaginatorModule,
    MatProgressSpinnerModule,
@@ -45,6 +48,7 @@ import { PromocaoEdicaoComponent } from './components/promocao-edicao/promocao-e
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    MatSelectModule,
     HttpClientModule,
     AppRoutingModule,
     MatInputModule,
