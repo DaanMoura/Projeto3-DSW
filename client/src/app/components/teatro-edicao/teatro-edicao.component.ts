@@ -62,7 +62,7 @@
         .subscribe(res => {
             let id = res['id']; 
             this.isLoadingResults = false;
-            this.router.navigate(['/teatro', id]);
+            this.router.navigate(['/teatro']);
           }, (err) => {
             console.log(err);
             this.isLoadingResults = false;
