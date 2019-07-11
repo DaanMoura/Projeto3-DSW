@@ -12,9 +12,16 @@ json {
     site {
         id promocao.site.id
         url promocao.site.url
+        email promocao.site.email
+        senha promocao.site.senha
+        telefone promocao.site.telefone
     }
     sala {
         id promocao.sala.id
         nome promocao.sala.nome
+        email promocao.sala.email
+        senha promocao.sala.senha
+        cnpj promocao.sala.cnpj
+        cidade promocao.sala.cidade
     }
 }

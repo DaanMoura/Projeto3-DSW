@@ -24,4 +24,10 @@ export class SiteComponent implements OnInit {
     this.isLoadingResults = false;
   }
 
+  async deleteItem(id: number) {
+    console.log(`trying to delete ${id}`)
+    await this.api.deleteSite(id).toPromise();
+    this.getData();
+  }
+
 }

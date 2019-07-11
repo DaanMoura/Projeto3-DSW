@@ -41,7 +41,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>Deletar</th>
         <td mat-cell *matCellDef="let row">
-          <button mat-button>
+          <button mat-button onclick="confirm('Você tem certeza?!');" (click)="deleteItem(row.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
