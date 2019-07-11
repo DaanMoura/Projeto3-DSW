@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ApiService } from 'src/app/services/api.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Site } from 'src/app/models/site';
 
@@ -24,12 +24,20 @@ export class SiteCadastroComponent implements OnInit {
       'senha': [null, Validators.required],
       'email': [null, Validators.required]
   });
-  this.api.getSites()
-      .subscribe(res => {
-        this.sites = res;
+      
+  }
+
+  onFormSubmit(form: any) {
+    this.isLoadingResults = true;
+    this.api.addSite(form).subscribe(res => {
         this.isLoadingResults = false;
-      }, err => {
+        this.router.navigate(['/site']);
+      }, (err) => {
+        console.log(err);
         this.isLoadingResults = false;
       });
   }
 }
+
+
+

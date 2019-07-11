@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class SiteComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','nome','url','telefone'];
+  displayedColumns: string[] = ['id','nome','url','telefone',];
   sites: Site[] = [];
   isLoadingResults = true;
 
@@ -18,6 +18,8 @@ export class SiteComponent implements OnInit {
   ngOnInit() {
     this.getData();
   }
+
+  
 
   async getData() {
     this.sites = await this.api.getSites().toPromise();
