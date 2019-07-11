@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { SalaTeatro } from 'src/app/models/salaTeatro';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teatro',
@@ -13,7 +14,7 @@ export class TeatroComponent implements OnInit {
   salas: SalaTeatro[] = [];
   isLoadingResults = true;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -22,6 +23,13 @@ export class TeatroComponent implements OnInit {
   async getData() {
     this.salas = await this.api.getSalaTeatros().toPromise();
     this.isLoadingResults = false;
+  }
+
+  async deleteItem(id: number) {
+    console.log(`delete ${id}`)
+    await this.api.deleteSalaTeatro(id).toPromise();
+    this.router.navigate(['/teatro']);
+    this.getData();
   }
 
 }
