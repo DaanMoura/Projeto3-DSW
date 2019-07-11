@@ -9,7 +9,7 @@ import { SalaTeatro } from 'src/app/models/salaTeatro';
 })
 export class TeatroComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'cidade', 'cnpj'];
+  displayedColumns: string[] = ['id', 'nome', 'cidade', 'cnpj', 'edit', 'delete'];
   salas: SalaTeatro[] = [];
   isLoadingResults = true;
 

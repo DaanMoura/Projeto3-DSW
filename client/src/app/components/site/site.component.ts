@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class SiteComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','nome','url','telefone',];
+  displayedColumns: string[] = ['id','nome','url','telefone', 'edit', 'delete'];
   sites: Site[] = [];
   isLoadingResults = true;
 

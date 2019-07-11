@@ -9,7 +9,7 @@ import { Promocao } from 'src/app/models/promocao';
 })
 export class PromocaoComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nomePeca', 'horario', 'preco', 'sala', 'site'];
+  displayedColumns: string[] = ['id', 'nomePeca', 'horario', 'preco', 'sala', 'site', 'edit', 'delete'];
   promocoes: Promocao[] = [];
   isLoadingResults = false;
 
