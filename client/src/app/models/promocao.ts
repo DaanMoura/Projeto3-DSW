@@ -4,7 +4,7 @@ import { Time } from '@angular/common';
 
 export class Promocao {
     id: number;
-    horario: Time;
+    horario: Date;
     nomePeca: string;
     preco: number;
     sala: SalaTeatro;

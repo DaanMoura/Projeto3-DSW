@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Promocao } from 'src/app/models/promocao';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-promocao',
@@ -13,7 +14,7 @@ export class PromocaoComponent implements OnInit {
   promocoes: Promocao[] = [];
   isLoadingResults = false;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -22,6 +23,11 @@ export class PromocaoComponent implements OnInit {
   async getData() {
     this.promocoes = await this.api.getPromocoes().toPromise();
     this.isLoadingResults = false;
+  }
+
+  async editItem(id: number) {
+    console.log(`going to edit ${id}`)
+    this.router.navigate(['/promocao-edicao', id])
   }
 
   async deleteItem(id: number) {

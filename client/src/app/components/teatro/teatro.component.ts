@@ -25,6 +25,11 @@ export class TeatroComponent implements OnInit {
     this.isLoadingResults = false;
   }
 
+  async editItem(id: number) {
+    console.log(`going to edit ${id}`)
+    this.router.navigate(['/teatro-edicao', id])
+  }
+
   async deleteItem(id: number) {
     console.log(`trying to delete ${id}`)
     await this.api.deleteSalaTeatro(id).toPromise();
